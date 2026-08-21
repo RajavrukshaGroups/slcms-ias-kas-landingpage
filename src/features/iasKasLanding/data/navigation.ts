@@ -27,7 +27,7 @@ export const navItems: NavItem[] = [
       { label: 'Curated Study Materials', href: '#study-materials' },
     ],
   },
-  { label: 'Success Stories', href: '#testimonials' },
+
 ];
 
 export const collegeName = 'SRI LAKSHMI COLLEGE OF MANAGEMENT & SCIENCE';

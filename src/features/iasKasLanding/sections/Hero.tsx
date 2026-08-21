@@ -1,5 +1,4 @@
-import { ArrowRight, BookOpen, Target, TrendingUp, GraduationCap, Users, ShieldCheck, Landmark } from 'lucide-react';
-import { heroData } from '../data/hero';
+import { ArrowRight, BookOpen, Target, Users, GraduationCap, ShieldCheck, Landmark, CheckCircle2, Megaphone, FileEdit } from 'lucide-react';
 import heroBg from '../../../assets/images/hero-bg.jpg';
 
 export default function Hero() {
@@ -22,213 +21,171 @@ export default function Hero() {
     }
   };
 
+  const tickerStripItems = [
+    'TEST SERIES WITH REAL EXAM PATTERN',
+    'NCERT + STANDARD BOOKS COVERAGE',
+    'DAILY CURRENT AFFAIRS INTEGRATION',
+    'ANSWER WRITING WITH EXPERT FEEDBACK',
+  ];
+
+  const features = [
+    { icon: BookOpen, title: 'EXPERT FACULTY', subtitle: 'Learn from the best' },
+    { icon: Target, title: 'PROVEN STRATEGY', subtitle: 'Result-oriented approach' },
+    { icon: Users, title: 'PERSONALIZED GUIDANCE', subtitle: 'Mentorship at every step' },
+  ];
+
+  const stats = [
+    { icon: GraduationCap, value: '3+', label: 'DECADES OF EXCELLENCE' },
+    { icon: Users, value: '50K+', label: 'SUCCESSFUL ASPIRANTS' },
+    { icon: ShieldCheck, value: '100%', label: 'COMMITMENT TO SUCCESS' },
+    { icon: Landmark, value: '1', label: 'MISSION NATION FIRST' },
+  ];
+
   return (
     <section
       id="hero"
-      className="relative pt-28 sm:pt-32 pb-0 overflow-hidden flex flex-col justify-between min-h-[calc(100vh-80px)] lg:min-h-[660px]"
+      className="relative pt-[155px] sm:pt-[165px] lg:pt-[175px] pb-0 overflow-hidden bg-[#031A2E] flex flex-col justify-between min-h-[900px] lg:min-h-screen"
     >
-      {/* Background Campus Image with Slow-Zoom Animation */}
-      <img
-        src={heroBg}
-        alt="Sri Lakshmi College of Management & Science Campus Building"
-        className="absolute inset-0 w-full h-full object-cover object-left-top sm:object-center animate-slow-zoom transition-transform duration-1000"
-        fetchPriority="high"
-        decoding="async"
-      />
+      {/* HERO BACKGROUND IMAGE */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <img
+          src={heroBg}
+          alt="Sri Lakshmi College of Management & Science Campus Building"
+          className="w-full h-full object-cover object-center lg:object-right-center brightness-[1.02] contrast-[1.02]"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </div>
 
-      {/* Balanced Overlay that makes Campus Building clearly visible while preserving text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#061C30]/85 via-[#061C30]/60 to-[#061C30]/35 pointer-events-none" />
+      {/* NAVY GRADIENT OVERLAY */}
+      <div className="absolute inset-0 pointer-events-none z-[1] bg-[linear-gradient(to_right,#031A2E_0%,#031A2E_36%,rgba(3,26,46,0.85)_50%,rgba(3,26,46,0.25)_70%,rgba(3,26,46,0.05)_90%)]" />
 
-      {/* Main Hero Content Container */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 my-auto py-8 sm:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
-          {/* Empty Left Column to let Campus Building shine clearly (5 cols) */}
-          <div className="hidden lg:block lg:col-span-5" />
+      {/* NAVBAR TOP PROTECTION GRADIENT */}
+      <div className="absolute top-0 left-0 right-0 h-[130px] bg-gradient-to-b from-[#031A2E]/90 to-transparent pointer-events-none z-[1]" />
 
-          {/* Right-Aligned Hero Content Column (7 cols) */}
-          <div className="lg:col-span-7 space-y-6 text-left animate-in fade-in slide-in-from-bottom-6 duration-700">
-            
-            {/* Top Eyebrow: DREAM. PREPARE. SERVE. */}
-            <div className="flex items-center gap-3">
-              <span className="font-sans text-[13px] font-semibold uppercase tracking-[0.18em] text-[#D9A900] drop-shadow-sm">
-                DREAM. PREPARE. SERVE.
-              </span>
-              <div className="w-12 h-px bg-[#D9A900]/60" />
-            </div>
+      {/* GOLD DOT GRID ACCENT */}
+      <div className="absolute left-6 lg:left-10 top-44 w-36 h-80 bg-[radial-gradient(#F5B400_1.5px,transparent_1.5px)] [background-size:18px_18px] opacity-20 pointer-events-none hidden lg:block z-[2]" />
 
-            {/* Main Headline Stack: IAS | KAS + FOUNDATION COURSES */}
-            <div className="space-y-2">
-              <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[56px] font-extrabold text-white leading-[1.1] sm:leading-[1.05] tracking-tight drop-shadow-md">
-                IAS <span className="text-[#D9A900] font-light mx-2">|</span> KAS
-              </h1>
-              <p className="font-sans font-bold text-[18px] sm:text-[22px] lg:text-[26px] text-[#D9A900] tracking-[0.18em] uppercase drop-shadow-sm">
-                FOUNDATION COURSES
-              </p>
-              <div className="w-16 h-1 bg-[#D9A900] mt-3 rounded-full shadow-xs" />
-            </div>
+      {/* MAIN HERO CONTENT CONTAINER */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-[45px] xl:px-[55px] flex-1 flex flex-col justify-between pt-2 lg:pt-4">
 
-            {/* Sub-headline */}
-            <p className="font-sans text-[15px] sm:text-[16px] text-white/95 font-normal leading-[1.6] max-w-xl pt-1 drop-shadow-sm">
-              Shaping Future Officers. Building Better India. Integrated 3-Year Degree + UPSC/KPSC Civil Services Preparation in Bangalore.
+        {/* LEFT CONTENT COLUMN (Bounded max-width 600px) */}
+        <div className="w-full max-w-[600px] text-left animate-in fade-in slide-in-from-bottom-4 duration-500 my-auto py-2">
+
+          {/* EYEBROW */}
+          <div className="flex items-center gap-3.5 mb-3">
+            <span className="font-sans text-[15px] sm:text-[16px] font-extrabold uppercase tracking-[2px] leading-none text-[#F5B400]">
+              DREAM. PREPARE. SERVE.
+            </span>
+            <div className="w-[60px] h-[2px] bg-[#F5B400] rounded-full shrink-0" />
+          </div>
+
+          {/* IAS | KAS MAIN HEADING */}
+          <div className="mb-3">
+            <h1 className="font-sans text-[clamp(76px,6vw,96px)] font-black text-white leading-[0.92] tracking-[-3px] flex items-center gap-3 sm:gap-4 flex-nowrap whitespace-nowrap">
+              <span>IAS</span>
+              <span className="w-[4px] h-[80px] sm:h-[92px] lg:h-[104px] bg-[#F5B400] inline-block rounded-[2px] shrink-0" />
+              <span>KAS</span>
+            </h1>
+
+            {/* SECONDARY HEADING: FOUNDATION COURSES */}
+            <p className="font-sans font-extrabold text-[clamp(36px,3vw,42px)] text-[#F5B400] tracking-[2px] uppercase mt-1.5 mb-2 leading-none">
+              FOUNDATION COURSES
             </p>
 
-            {/* Lightweight Horizontal Feature Row */}
-            <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-2">
-              {/* Feature 1 */}
-              <div className="flex items-center gap-3 group">
-                <div className="w-9 h-9 rounded-lg bg-[#D9A900]/20 border border-[#D9A900]/40 text-[#D9A900] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <BookOpen className="w-4 h-4 text-[#D9A900]" />
-                </div>
-                <div>
-                  <span className="font-sans font-bold text-[12px] uppercase tracking-wider text-white block drop-shadow-xs">
-                    EXPERT FACULTY
-                  </span>
-                  <span className="font-sans text-[12px] text-white/80 font-normal block">
-                    Learn from the best
-                  </span>
-                </div>
-              </div>
+            {/* GOLD UNDERLINE ACCENT BAR */}
+            <div className="w-16 sm:w-20 h-[3px] bg-[#F5B400] my-3 rounded-full" />
+          </div>
 
-              {/* Feature 2 */}
-              <div className="flex items-center gap-3 group">
-                <div className="w-9 h-9 rounded-lg bg-[#D9A900]/20 border border-[#D9A900]/40 text-[#D9A900] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <Target className="w-4 h-4 text-[#D9A900]" />
-                </div>
-                <div>
-                  <span className="font-sans font-bold text-[12px] uppercase tracking-wider text-white block drop-shadow-xs">
-                    PROVEN STRATEGY
-                  </span>
-                  <span className="font-sans text-[12px] text-white/80 font-normal block">
-                    Result-oriented approach
-                  </span>
-                </div>
-              </div>
+          {/* HERO DESCRIPTION */}
+          <p className="font-sans text-[17px] sm:text-[19px] lg:text-[20px] font-normal leading-[1.6] tracking-[-0.2px] text-[#F2F5F7] max-w-[600px] mb-7">
+            Shaping Future Officers. Building Better India.<br className="hidden sm:inline" />
+            Integrated 3-Year Degree + UPSC/KPSC<br className="hidden sm:inline" />
+            Civil Services Preparation in Bangalore.
+          </p>
 
-              {/* Feature 3 */}
-              <div className="flex items-center gap-3 group">
-                <div className="w-9 h-9 rounded-lg bg-[#D9A900]/20 border border-[#D9A900]/40 text-[#D9A900] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <TrendingUp className="w-4 h-4 text-[#D9A900]" />
-                </div>
-                <div>
-                  <span className="font-sans font-bold text-[12px] uppercase tracking-wider text-white block drop-shadow-xs">
-                    PERSONALIZED GUIDANCE
-                  </span>
-                  <span className="font-sans text-[12px] text-white/80 font-normal block">
-                    Mentorship at every step
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Action CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
-              <a
-                href="#courses"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('#courses');
-                }}
-                className="inline-flex items-center justify-center gap-2 bg-[#D9A900] hover:bg-[#A87C00] text-[#061C30] px-8 py-3.5 rounded-lg font-sans font-bold text-[12px] sm:text-[13px] uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
+          {/* FEATURE HIGHLIGHTS */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-0 sm:divide-x divide-white/15 mb-7">
+            {features.map((feature, idx) => (
+              <div
+                key={feature.title}
+                className={`flex items-center gap-3.5 ${
+                  idx === 0 ? 'sm:pr-6' : idx === features.length - 1 ? 'sm:pl-6' : 'sm:px-6'
+                }`}
               >
-                <span>EXPLORE COURSES</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('#contact');
-                }}
-                className="inline-flex items-center justify-center gap-2 border border-white/80 hover:bg-white hover:text-[#061C30] text-white px-8 py-3.5 rounded-lg font-sans font-bold text-[12px] sm:text-[13px] uppercase tracking-wider transition-all duration-300 backdrop-blur-md cursor-pointer shadow-sm"
-              >
-                <span>ADMISSION ENQUIRY</span>
-              </a>
-            </div>
+                <div className="w-[48px] h-[48px] rounded-lg border border-[#F5B400]/40 bg-[#F5B400]/10 flex items-center justify-center text-[#F5B400] shrink-0">
+                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#F5B400]" />
+                </div>
+                <div>
+                  <span className="font-sans font-extrabold text-[13px] lg:text-[14px] leading-[1.2] tracking-normal text-white block uppercase whitespace-nowrap">
+                    {feature.title}
+                  </span>
+                  <span className="font-sans text-[13px] font-normal leading-[1.4] text-[#D5DDE4] block mt-0.5 whitespace-nowrap">
+                    {feature.subtitle}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
 
+          {/* SUPPORTING REASSURANCE STATEMENT */}
+          <div className="flex items-center gap-3 text-[16px] font-medium leading-[1.4] text-[#F2F5F7] font-sans mb-6">
+            <div className="w-5 h-5 rounded-full border border-[#F5B400] flex items-center justify-center text-[#F5B400] shrink-0">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#F5B400]" />
+            </div>
+            <span>3-Year Integrated Degree + IAS/KAS Preparation</span>
           </div>
 
         </div>
 
-        {/* Bottom Full-Width Slim Statistics Bar */}
-        <div className="mt-12 bg-[#061C30]/80 border border-white/20 rounded-2xl p-5 sm:p-6 backdrop-blur-md shadow-2xl text-white">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
-            {/* Metric 1 */}
-            <div className="flex items-center gap-3.5 pt-2 sm:pt-0 sm:pr-4 group">
-              <div className="w-10 h-10 rounded-xl bg-[#D9A900] text-[#061C30] flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                <GraduationCap className="w-5 h-5" />
+        {/* FLOATING STATISTICS PANEL */}
+        <div className="w-[92%] max-w-[1440px] mx-auto mt-2 mb-5 bg-[rgba(3,25,42,0.85)] border border-white/22 rounded-2xl p-4 lg:py-4.5 lg:px-8 backdrop-blur-md shadow-2xl text-white">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x divide-white/20">
+            {stats.map((stat, idx) => (
+              <div
+                key={stat.label}
+                className={`flex items-center gap-4 lg:px-6 ${idx === 0 ? 'lg:pl-2' : ''} ${
+                  idx === stats.length - 1 ? 'lg:pr-2' : ''
+                }`}
+              >
+                <div className="w-11 h-11 lg:w-[50px] lg:h-[50px] rounded-full border border-[#F5B400]/50 bg-[#F5B400]/10 flex items-center justify-center text-[#F5B400] shrink-0">
+                  <stat.icon className="w-5 h-5 lg:w-6 lg:h-6 text-[#F5B400]" />
+                </div>
+                <div className="text-left font-sans">
+                  <span className="font-sans font-extrabold text-[36px] lg:text-[42px] leading-none tracking-[-1px] text-[#F5B400] block">
+                    {stat.value}
+                  </span>
+                  <span className="font-sans font-bold text-[13px] lg:text-[14px] leading-[1.2] tracking-[0.2px] text-white uppercase block mt-1">
+                    {stat.label}
+                  </span>
+                </div>
               </div>
-              <div className="text-left font-sans">
-                <span className="font-sans font-bold text-[30px] sm:text-[36px] text-[#D9A900] leading-none block">
-                  3+
-                </span>
-                <span className="font-sans font-bold text-[12px] text-white uppercase tracking-[0.12em] block mt-1">
-                  DECADES OF EXCELLENCE
-                </span>
-              </div>
-            </div>
-
-            {/* Metric 2 */}
-            <div className="flex items-center gap-3.5 pt-2 sm:pt-0 sm:px-4 group">
-              <div className="w-10 h-10 rounded-xl bg-[#D9A900] text-[#061C30] flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                <Users className="w-5 h-5" />
-              </div>
-              <div className="text-left font-sans">
-                <span className="font-sans font-bold text-[30px] sm:text-[36px] text-[#D9A900] leading-none block">
-                  50K+
-                </span>
-                <span className="font-sans font-bold text-[12px] text-white uppercase tracking-[0.12em] block mt-1">
-                  SUCCESSFUL ASPIRANTS
-                </span>
-              </div>
-            </div>
-
-            {/* Metric 3 */}
-            <div className="flex items-center gap-3.5 pt-2 sm:pt-0 sm:px-4 group">
-              <div className="w-10 h-10 rounded-xl bg-[#D9A900] text-[#061C30] flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div className="text-left font-sans">
-                <span className="font-sans font-bold text-[30px] sm:text-[36px] text-[#D9A900] leading-none block">
-                  100%
-                </span>
-                <span className="font-sans font-bold text-[12px] text-white uppercase tracking-[0.12em] block mt-1">
-                  COMMITMENT TO SUCCESS
-                </span>
-              </div>
-            </div>
-
-            {/* Metric 4 */}
-            <div className="flex items-center gap-3.5 pt-2 sm:pt-0 sm:pl-4 group">
-              <div className="w-10 h-10 rounded-xl bg-[#D9A900] text-[#061C30] flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                <Landmark className="w-5 h-5" />
-              </div>
-              <div className="text-left font-sans">
-                <span className="font-sans font-bold text-[30px] sm:text-[36px] text-[#D9A900] leading-none block">
-                  1
-                </span>
-                <span className="font-sans font-bold text-[12px] text-white uppercase tracking-[0.12em] block mt-1">
-                  MISSION NATION FIRST
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
       </div>
 
-      {/* Marquee Ticker Bar */}
-      <div className="mt-8 mb-0 bg-[#061C30] py-3.5 border-t border-[#D9A900]/30 border-b-0 overflow-hidden relative z-20">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...heroData.marqueeItems, ...heroData.marqueeItems].map((item, idx) => (
+      {/* BOTTOM INFORMATION TICKER STRIP */}
+      <div className="w-full bg-[#087C73] h-[58px] sm:h-[60px] border-t border-b border-white/15 overflow-hidden relative z-20 flex items-center shrink-0">
+        <div className="px-5 shrink-0 flex items-center justify-center text-[#F5B400] border-r border-white/15 h-full z-10 bg-[#087C73]">
+          <Megaphone className="w-5 h-5 text-[#F5B400]" />
+        </div>
+
+        <div className="flex animate-marquee whitespace-nowrap items-center h-full">
+          {[...tickerStripItems, ...tickerStripItems, ...tickerStripItems].map((item, idx) => (
             <span
               key={idx}
-              className="mx-8 text-[12px] font-sans font-bold tracking-[0.18em] text-[#D9A900] uppercase flex items-center gap-6"
+              className="mx-8 text-[13px] lg:text-[14px] leading-[1.2] font-sans font-bold tracking-[0.1px] text-[#F2F5F7] uppercase flex items-center gap-8"
             >
               {item}
-              <span className="text-[#D9A900]">•</span>
+              <span className="text-[#F5B400]">•</span>
             </span>
           ))}
+        </div>
+
+        <div className="px-5 shrink-0 flex items-center justify-center text-[#F5B400] border-l border-white/15 h-full z-10 bg-[#087C73]">
+          <FileEdit className="w-5 h-5 text-[#F5B400]" />
         </div>
       </div>
     </section>
