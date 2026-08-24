@@ -104,45 +104,45 @@ export default function EnquiryModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-[#061C30]/80 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-3 sm:p-4 bg-[#061C30]/80 backdrop-blur-sm animate-in fade-in duration-200">
       {/* Modal Card Container */}
       <div
-        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-[#E5E1D8] overflow-hidden animate-in zoom-in-95 duration-200"
+        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-[#E5E1D8] overflow-hidden flex flex-col max-h-[90dvh] animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={handleClose}
           type="button"
-          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors cursor-pointer"
+          className="absolute top-3.5 right-3.5 z-20 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors cursor-pointer"
           aria-label="Close Enquiry Popup"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="bg-[#061C30] text-white p-6 sm:p-7 relative overflow-hidden">
+        <div className="bg-[#061C30] text-white p-5 sm:p-7 relative overflow-hidden shrink-0">
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#D9A900]/10 rounded-full blur-2xl pointer-events-none" />
           
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-2.5 sm:mb-3">
             <img
               src={logoWebp}
               alt="Sri Lakshmi Logo"
-              className="w-10 h-10 object-contain"
+              className="w-9 h-9 sm:w-10 sm:h-10 object-contain"
               width={40}
               height={40}
             />
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#D9A900] font-sans block">
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D9A900] font-sans block">
                 ADMISSION 2026-27 OPEN
               </span>
-              <h3 className="text-sm sm:text-base font-bold uppercase tracking-tight text-white font-sans leading-none mt-0.5">
+              <h3 className="text-xs sm:text-base font-bold uppercase tracking-tight text-white font-sans leading-none mt-0.5">
                 SRI LAKSHMI COLLEGE
               </h3>
             </div>
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-bold font-sans text-white leading-tight">
+          <h2 className="text-lg sm:text-2xl font-bold font-sans text-white leading-tight">
             Integrated <span className="text-[#D9A900]">IAS / KAS</span> Degree Program
           </h2>
           <p className="text-xs sm:text-sm text-white/80 font-sans mt-1">
@@ -151,7 +151,7 @@ export default function EnquiryModal() {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-7">
+        <div className="p-5 sm:p-7 overflow-y-auto flex-1">
           {isSubmitted ? (
             <div className="py-8 text-center space-y-4 animate-in fade-in duration-300">
               <div className="w-14 h-14 rounded-full bg-teal-50 text-[#087C73] border border-teal-200 flex items-center justify-center mx-auto">
@@ -184,7 +184,7 @@ export default function EnquiryModal() {
                   value={formData.fullName}
                   onBlur={() => handleBlur('fullName')}
                   onChange={(e) => handleChange('fullName', e.target.value)}
-                  className={`w-full bg-[#F8F7F3] border rounded-lg px-3.5 py-2 text-xs sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
+                  className={`w-full bg-[#F8F7F3] border rounded-lg px-3.5 py-2 text-base sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
                     touched.fullName && errors.fullName
                       ? 'border-red-500 focus:border-red-600'
                       : 'border-[#E5E1D8] focus:border-[#087C73]'
@@ -208,7 +208,7 @@ export default function EnquiryModal() {
                   value={formData.phone}
                   onBlur={() => handleBlur('phone')}
                   onChange={(e) => handleChange('phone', e.target.value)}
-                  className={`w-full bg-[#F8F7F3] border rounded-lg px-3.5 py-2 text-xs sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
+                  className={`w-full bg-[#F8F7F3] border rounded-lg px-3.5 py-2 text-base sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
                     touched.phone && errors.phone
                       ? 'border-red-500 focus:border-red-600'
                       : 'border-[#E5E1D8] focus:border-[#087C73]'
@@ -232,7 +232,7 @@ export default function EnquiryModal() {
                   value={formData.email}
                   onBlur={() => handleBlur('email')}
                   onChange={(e) => handleChange('email', e.target.value)}
-                  className={`w-full bg-[#F8F7F3] border rounded-lg px-3.5 py-2 text-xs sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
+                  className={`w-full bg-[#F8F7F3] border rounded-lg px-3.5 py-2 text-base sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
                     touched.email && errors.email
                       ? 'border-red-500 focus:border-red-600'
                       : 'border-[#E5E1D8] focus:border-[#087C73]'
@@ -255,7 +255,7 @@ export default function EnquiryModal() {
                   placeholder="Ask about IAS/KAS coaching, hostel, degree courses, fees..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-[#F8F7F3] border border-[#E5E1D8] rounded-lg px-3.5 py-2 text-xs sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:border-[#087C73] focus:bg-white transition-colors font-sans resize-none"
+                  className="w-full bg-[#F8F7F3] border border-[#E5E1D8] rounded-lg px-3.5 py-2 text-base sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:border-[#087C73] focus:bg-white transition-colors font-sans resize-none"
                 />
               </div>
 

@@ -91,27 +91,27 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-premium-light bg-gold-arc text-[#082B50] relative border-b border-[#E5E1D8] overflow-hidden" ref={ref}>
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-premium-light bg-gold-arc text-[#082B50] relative border-b border-[#E5E1D8] overflow-hidden" ref={ref}>
       {/* Top Gold Line Accent */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-[#D9A900]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div
-          className={`flex flex-col items-center text-center mb-10 sm:mb-12 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          className={`flex flex-col items-center text-center mb-8 sm:mb-12 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
         >
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <span className="text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
+            <span className="text-[12px] sm:text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
               ADMISSION ENQUIRY &amp; CONTACT
             </span>
           </div>
 
-          <h2 className="font-sans text-[30px] sm:text-[38px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
+          <h2 className="font-sans text-[26px] sm:text-[36px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
             Connect with Our <span className="text-[#087C73]">Civil Services Academy</span>
           </h2>
-          <div className="w-16 h-1 bg-[#D9A900] mt-4 rounded-full" />
-          <p className="mt-5 text-[15px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] max-w-2xl font-sans">
+          <div className="w-14 sm:w-16 h-1 bg-[#D9A900] mt-3 sm:mt-4 rounded-full" />
+          <p className="mt-4 sm:mt-5 text-[14px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] max-w-2xl font-sans">
             Have questions about our 3-Year Integrated Degree + IAS/KAS Officer Program? Fill out the contact form below or reach out to our admission counselors directly.
           </p>
         </div>
@@ -221,7 +221,7 @@ export default function ContactForm() {
                       value={formData.fullName}
                       onBlur={() => handleBlur('fullName')}
                       onChange={(e) => handleChange('fullName', e.target.value)}
-                      className={`w-full bg-[#F8F7F3] border rounded-lg px-4 py-3 text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
+                      className={`w-full bg-[#F8F7F3] border rounded-lg px-4 py-3 text-base sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
                         touched.fullName && errors.fullName
                           ? 'border-red-500 focus:border-red-600'
                           : 'border-[#E5E1D8] focus:border-[#087C73]'
@@ -244,7 +244,7 @@ export default function ContactForm() {
                       value={formData.phone}
                       onBlur={() => handleBlur('phone')}
                       onChange={(e) => handleChange('phone', e.target.value)}
-                      className={`w-full bg-[#F8F7F3] border rounded-lg px-4 py-3 text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
+                      className={`w-full bg-[#F8F7F3] border rounded-lg px-4 py-3 text-base sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
                         touched.phone && errors.phone
                           ? 'border-red-500 focus:border-red-600'
                           : 'border-[#E5E1D8] focus:border-[#087C73]'
@@ -268,7 +268,7 @@ export default function ContactForm() {
                     value={formData.email}
                     onBlur={() => handleBlur('email')}
                     onChange={(e) => handleChange('email', e.target.value)}
-                    className={`w-full bg-[#F8F7F3] border rounded-lg px-4 py-3 text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
+                    className={`w-full bg-[#F8F7F3] border rounded-lg px-4 py-3 text-base sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:bg-white transition-colors font-sans ${
                       touched.email && errors.email
                         ? 'border-red-500 focus:border-red-600'
                         : 'border-[#E5E1D8] focus:border-[#087C73]'
@@ -290,7 +290,7 @@ export default function ContactForm() {
                     placeholder="Tell us about your background or questions regarding the IAS/KAS preparation..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-[#F8F7F3] border border-[#E5E1D8] rounded-lg px-4 py-3 text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:border-[#087C73] focus:bg-white transition-colors resize-none font-sans"
+                    className="w-full bg-[#F8F7F3] border border-[#E5E1D8] rounded-lg px-4 py-3 text-base sm:text-sm text-[#082B50] placeholder-[#64748B] focus:outline-none focus:border-[#087C73] focus:bg-white transition-colors resize-none font-sans"
                   />
                 </div>
 

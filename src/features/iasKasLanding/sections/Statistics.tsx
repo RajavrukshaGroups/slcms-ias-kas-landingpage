@@ -16,15 +16,15 @@ function StatItem({
   const { count, ref } = useCountUp(numValue, 2000, true);
 
   return (
-    <div ref={ref} className="text-center px-4 py-8 relative group">
-      <span className="font-sans font-semibold text-[11px] text-[#D9A900]/80 uppercase tracking-[0.18em] block mb-2">
+    <div ref={ref} className="text-center px-4 py-6 sm:py-8 relative group border-b sm:border-b-0 sm:border-r last:border-0 border-white/10">
+      <span className="font-sans font-semibold text-[10px] sm:text-[11px] text-[#D9A900]/80 uppercase tracking-[0.18em] block mb-1.5 sm:mb-2">
         {numIdx}
       </span>
-      <div className="font-sans text-[36px] sm:text-[44px] font-bold text-[#D9A900] mb-2 leading-none">
+      <div className="font-sans text-[32px] sm:text-[44px] font-bold text-[#D9A900] mb-1.5 sm:mb-2 leading-none">
         {count}
         <span>{suffix}</span>
       </div>
-      <p className="text-[12px] font-bold text-white tracking-[0.12em] uppercase font-sans mt-3">
+      <p className="text-[11px] sm:text-[12px] font-bold text-white tracking-[0.12em] uppercase font-sans mt-2 sm:mt-3">
         {label}
       </p>
     </div>
@@ -33,12 +33,12 @@ function StatItem({
 
 export default function Statistics() {
   return (
-    <section className="py-12 sm:py-16 bg-[#061C30] border-b border-navy-900 text-white relative">
+    <section className="py-10 sm:py-16 bg-[#061C30] border-b border-navy-900 text-white relative">
       {/* Subtle Gold Accent Top Line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-[#D9A900] opacity-80" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-6 lg:gap-8">
           {statistics.map((stat, index) => (
             <StatItem
               key={stat.label}

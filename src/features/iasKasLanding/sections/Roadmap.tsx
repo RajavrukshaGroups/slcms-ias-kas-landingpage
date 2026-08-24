@@ -37,12 +37,12 @@ function YearMilestoneHeader({
   return (
     <div
       ref={headerRef}
-      className={`relative flex items-center justify-start lg:justify-center mb-12 pl-12 sm:pl-16 lg:pl-0 z-20 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-85 translate-y-6'
+      className={`relative flex items-center justify-start lg:justify-center mb-8 sm:mb-12 pl-10 sm:pl-14 lg:pl-0 z-20 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-85 translate-y-6'
         }`}
     >
-      <div className="inline-flex items-center gap-3 bg-[#061C30] text-white px-5 py-2.5 rounded-full border-2 border-[#D9A900] shadow-md group hover:scale-105 transition-transform">
-        <GraduationCap className="w-4 h-4 text-[#D9A900] group-hover:rotate-12 transition-transform" />
-        <span className="flex items-center gap-1.5 text-xs sm:text-sm tracking-wider uppercase whitespace-nowrap">
+      <div className="inline-flex items-center gap-2 sm:gap-3 bg-[#061C30] text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border-2 border-[#D9A900] shadow-md group hover:scale-105 transition-transform max-w-full">
+        <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D9A900] group-hover:rotate-12 transition-transform shrink-0" />
+        <span className="flex items-center gap-1 text-[11px] sm:text-sm tracking-wider uppercase whitespace-nowrap">
           <span className="font-sans font-bold text-[#D9A900]">
             YEAR
           </span>
@@ -50,8 +50,8 @@ function YearMilestoneHeader({
             {year}
           </span>
         </span>
-        <span className="w-1.5 h-1.5 rounded-full bg-[#D9A900]" />
-        <span className="font-sans text-xs text-white/90 uppercase tracking-wider font-semibold">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#D9A900] shrink-0" />
+        <span className="font-sans text-[10.5px] sm:text-xs text-white/90 uppercase tracking-wider font-semibold truncate">
           {yearSubtitles[yearIdx]}
         </span>
       </div>
@@ -102,13 +102,13 @@ function TimelinePhaseItem({
         }`}
     >
       {/* Timeline Circle Node on Spine */}
-      <div className="absolute left-5 sm:left-8 lg:left-1/2 top-1.5 -translate-x-1/2 z-20 flex items-center justify-center">
+      <div className="absolute left-4 sm:left-6 lg:left-1/2 top-1.5 -translate-x-1/2 z-20 flex items-center justify-center">
         <div className="relative flex items-center justify-center">
           <div
-            className={`w-8 h-8 rounded-full bg-white border-2 border-[#D9A900] flex items-center justify-center shadow-xs transition-all duration-500 ${isVisible ? 'scale-110 ring-4 ring-[#D9A900]/30 shadow-md' : 'scale-90'
+            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-[#D9A900] flex items-center justify-center shadow-xs transition-all duration-500 ${isVisible ? 'scale-110 ring-4 ring-[#D9A900]/30 shadow-md' : 'scale-90'
               }`}
           >
-            <div className="w-3 h-3 rounded-full bg-[#087C73]" />
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#087C73]" />
           </div>
           {isVisible && (
             <div className="absolute inset-0 rounded-full border border-[#D9A900] animate-ping opacity-40" />
@@ -118,13 +118,13 @@ function TimelinePhaseItem({
 
       {/* Content Container */}
       <div
-        className={`w-full lg:w-1/2 pl-14 sm:pl-20 lg:pl-0 ${isEven ? 'lg:pr-14 lg:text-right' : 'lg:ml-auto lg:pl-14 lg:text-left'
+        className={`w-full lg:w-1/2 pl-10 sm:pl-14 lg:pl-0 ${isEven ? 'lg:pr-14 lg:text-right' : 'lg:ml-auto lg:pl-14 lg:text-left'
           }`}
       >
-        <div className="space-y-2 group p-5 bg-white border border-[#E5E1D8] rounded-2xl transition-all duration-300 hover:border-[#D9A900] hover:shadow-xs">
+        <div className="space-y-2 group p-4 sm:p-5 bg-white border border-[#E5E1D8] rounded-2xl transition-all duration-300 hover:border-[#D9A900] hover:shadow-xs">
           {/* Metadata Eyebrow */}
           <div
-            className={`flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-[#087C73] ${isEven ? 'lg:justify-end' : 'lg:justify-start'
+            className={`flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#087C73] ${isEven ? 'lg:justify-end' : 'lg:justify-start'
               }`}
           >
             <Sparkles className="w-3.5 h-3.5 text-[#A87C00] shrink-0" />
@@ -134,13 +134,13 @@ function TimelinePhaseItem({
           </div>
 
           {/* Phase Title */}
-          <h3 className="font-sans text-[20px] sm:text-[24px] font-bold text-[#082B50] group-hover:text-[#087C73] transition-colors leading-[1.2]">
+          <h3 className="font-sans text-[18px] sm:text-[24px] font-bold text-[#082B50] group-hover:text-[#087C73] transition-colors leading-[1.2]">
             {phase.title}
           </h3>
 
           {/* Phase Description */}
           <p
-            className={`text-[15px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] font-sans max-w-lg ${isEven ? 'lg:ml-auto' : 'lg:mr-auto'
+            className={`text-[14px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] font-sans max-w-lg ${isEven ? 'lg:ml-auto' : 'lg:mr-auto'
               }`}
           >
             {phase.description}
@@ -184,26 +184,26 @@ export default function Roadmap() {
   }, [ref]);
 
   return (
-    <section id="roadmap" className="py-16 sm:py-20 bg-premium-light bg-luxury-emblem border-b border-[#E5E1D8] relative overflow-hidden" ref={ref}>
+    <section id="roadmap" className="py-12 sm:py-16 lg:py-20 bg-premium-light bg-luxury-emblem border-b border-[#E5E1D8] relative overflow-hidden" ref={ref}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <div
-          className={`flex flex-col items-center text-center mb-10 sm:mb-12 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          className={`flex flex-col items-center text-center mb-8 sm:mb-12 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
         >
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <span className="text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
+            <span className="text-[12px] sm:text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
               STRUCTURED ACADEMIC TIMELINE
             </span>
           </div>
 
-          <h2 className="font-sans text-[30px] sm:text-[38px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
+          <h2 className="font-sans text-[26px] sm:text-[36px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
             {roadmapHeading.title}{' '}
             <span className="text-[#D9A900] inline-block pl-1.5 pr-1.5">{roadmapHeading.highlight}</span>
           </h2>
-          <div className="w-16 h-1 bg-[#D9A900] mt-4 rounded-full" />
-          <p className="mt-5 text-[15px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] max-w-2xl font-sans">
+          <div className="w-14 sm:w-16 h-1 bg-[#D9A900] mt-3 sm:mt-4 rounded-full" />
+          <p className="mt-4 sm:mt-5 text-[14px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] max-w-2xl font-sans">
             {roadmapHeading.description}
           </p>
         </div>
@@ -212,18 +212,18 @@ export default function Roadmap() {
         <div className="relative">
 
           {/* Base Inactive Vertical Spine Track */}
-          <div className="absolute top-4 bottom-4 left-5 sm:left-8 lg:left-1/2 w-1 -translate-x-1/2 bg-ivory-300/80 rounded-full" />
+          <div className="absolute top-4 bottom-4 left-4 sm:left-6 lg:left-1/2 w-1 -translate-x-1/2 bg-ivory-300/80 rounded-full" />
 
           {/* Dynamic Scroll-Drawn Active Timeline Line */}
           <div
-            className="absolute top-4 left-5 sm:left-8 lg:left-1/2 w-1 -translate-x-1/2 bg-gradient-to-b from-gold-400 via-teal-600 to-navy-900 rounded-full transition-all duration-300 ease-out shadow-xs"
+            className="absolute top-4 left-4 sm:left-6 lg:left-1/2 w-1 -translate-x-1/2 bg-gradient-to-b from-gold-400 via-teal-600 to-navy-900 rounded-full transition-all duration-300 ease-out shadow-xs"
             style={{ height: `${scrollProgress}%` }}
           />
 
           {/* Glowing Traveling Beam Pulse Node on Progress Line */}
           {scrollProgress > 2 && scrollProgress < 98 && (
             <div
-              className="absolute left-5 sm:left-8 lg:left-1/2 w-3.5 h-3.5 rounded-full bg-gold-400 shadow-[0_0_15px_#D4AF37] -translate-x-1/2 z-30 transition-all duration-300 pointer-events-none"
+              className="absolute left-4 sm:left-6 lg:left-1/2 w-3.5 h-3.5 rounded-full bg-gold-400 shadow-[0_0_15px_#D4AF37] -translate-x-1/2 z-30 transition-all duration-300 pointer-events-none"
               style={{ top: `${scrollProgress}%` }}
             >
               <div className="w-full h-full rounded-full bg-gold-300 animate-ping opacity-75" />

@@ -24,34 +24,34 @@ export default function ProgramDifference() {
   const [activeAdvantageIdx, setActiveAdvantageIdx] = useState<number | null>(null);
 
   return (
-    <section id="program-difference" className="py-16 sm:py-20 bg-premium-light bg-gold-arc border-b border-[#E5E1D8] relative overflow-hidden" ref={ref}>
+    <section id="program-difference" className="py-12 sm:py-16 lg:py-20 bg-premium-light bg-gold-arc border-b border-[#E5E1D8] relative overflow-hidden" ref={ref}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
 
           {/* Left Column: Editorial Sticky Heading & Advantages List (6 cols) */}
-          <div className="lg:col-span-6 space-y-6 lg:sticky lg:top-28">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6 lg:sticky lg:top-28">
             
             {/* Header Content */}
             <div
-              className={`space-y-4 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`space-y-3 sm:space-y-4 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
             >
               {/* Section Eyebrow */}
               <div className="flex items-center gap-2">
-                <span className="text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
+                <span className="text-[12px] sm:text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
                   DISTINCT ADVANTAGES
                 </span>
               </div>
 
               {/* Main H2 Heading */}
-              <h2 className="font-sans text-[30px] sm:text-[38px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
+              <h2 className="font-sans text-[26px] sm:text-[36px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
                 How Our Program <span className="text-[#087C73]">Differs</span>
               </h2>
 
               {/* Short Gold Underline */}
-              <div className="w-16 h-1 bg-[#D9A900] rounded-full" />
+              <div className="w-14 sm:w-16 h-1 bg-[#D9A900] rounded-full" />
 
-              <p className="font-sans text-[15px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6]">
+              <p className="font-sans text-[14px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6]">
                 We bridge the gap between traditional university academics and competitive civil service requirements through structured, dual-track learning.
               </p>
             </div>
@@ -67,22 +67,22 @@ export default function ProgramDifference() {
                     key={adv.text}
                     onMouseEnter={() => setActiveAdvantageIdx(idx)}
                     onMouseLeave={() => setActiveAdvantageIdx(null)}
-                    className={`p-5 rounded-2xl border transition-all duration-700 ease-out cursor-pointer font-sans hover-premium-card ${isActive
+                    className={`p-4 sm:p-5 rounded-2xl border transition-all duration-700 ease-out cursor-pointer font-sans hover-premium-card ${isActive
                       ? 'bg-white border-[#D9A900] shadow-md -translate-y-1'
                       : 'bg-white/95 border-[#E5E1D8] shadow-xs'
                       } ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                     style={{ transitionDelay: `${idx * 100}ms` }}
                   >
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3.5 sm:gap-4">
                       <div
-                        className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-colors ${isActive ? 'bg-[#087C73] text-white' : 'bg-[#F8F7F3] text-[#A87C00] border border-[#E5E1D8]'
+                        className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-colors ${isActive ? 'bg-[#087C73] text-white' : 'bg-[#F8F7F3] text-[#A87C00] border border-[#E5E1D8]'
                           }`}
                       >
-                        <IconComp className="w-5 h-5" />
+                        <IconComp className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
 
-                      <div className="space-y-1">
-                        <h3 className="font-sans font-bold text-[#082B50] text-[18px] sm:text-[20px] leading-[1.2]">
+                      <div className="space-y-1 min-w-0">
+                        <h3 className="font-sans font-bold text-[#082B50] text-[16px] sm:text-[20px] leading-[1.2]">
                           {adv.text}
                         </h3>
                       </div>
@@ -100,7 +100,7 @@ export default function ProgramDifference() {
               }`}
           >
             {/* Dark Feature Panel */}
-            <div className="bg-premium-dark bg-progression-watermark border border-navy-800 rounded-2xl lg:rounded-3xl p-7 sm:p-9 lg:p-10 text-white shadow-2xl relative overflow-hidden">
+            <div className="bg-premium-dark bg-progression-watermark border border-navy-800 rounded-2xl lg:rounded-3xl p-5 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
 
               {/* Institutional College Emblem & Name Header */}
               <div className="flex items-center justify-center gap-3 border-b border-navy-800 pb-5 mb-6">

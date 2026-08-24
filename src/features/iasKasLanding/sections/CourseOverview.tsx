@@ -21,32 +21,32 @@ export default function CourseOverview() {
   };
 
   return (
-    <section id="courses" className="py-16 sm:py-20 bg-premium-light bg-luxury-emblem border-b border-[#E5E1D8] relative overflow-hidden" ref={ref}>
+    <section id="courses" className="py-12 sm:py-16 lg:py-20 bg-premium-light bg-luxury-emblem border-b border-[#E5E1D8] relative overflow-hidden" ref={ref}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <div
-          className={`flex flex-col items-center text-center mb-10 sm:mb-12 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          className={`flex flex-col items-center text-center mb-8 sm:mb-12 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
         >
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <span className="text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
+            <span className="text-[12px] sm:text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
               ACADEMIC DIRECTORY
             </span>
           </div>
 
-          <h2 className="font-sans text-[30px] sm:text-[38px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
+          <h2 className="font-sans text-[26px] sm:text-[36px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
             {courseOverviewHeading.title}{' '}
             <span className="text-[#D9A900] inline-block pl-1.5 pr-1.5">{courseOverviewHeading.highlight}</span>
           </h2>
-          <div className="w-16 h-1 bg-[#D9A900] mt-4 rounded-full" />
-          <p className="mt-5 text-[15px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] max-w-2xl font-sans">
+          <div className="w-14 sm:w-16 h-1 bg-[#D9A900] mt-3 sm:mt-4 rounded-full" />
+          <p className="mt-4 sm:mt-5 text-[14px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] max-w-2xl font-sans">
             {courseOverviewHeading.description}
           </p>
         </div>
 
         {/* 3-Column Uniform Course Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 items-stretch">
           {courseCategories.map((course, idx) => {
             const IconComp = iconMap[course.icon];
             const courseNumber = `0${idx + 1}`;

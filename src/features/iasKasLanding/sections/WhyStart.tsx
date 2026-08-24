@@ -14,31 +14,31 @@ export default function WhyStart() {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="why-start" className="py-16 sm:py-20 bg-premium-light bg-arch-watermark border-b border-[#E5E1D8] relative overflow-hidden" ref={ref}>
+    <section id="why-start" className="py-12 sm:py-16 lg:py-20 bg-premium-light bg-arch-watermark border-b border-[#E5E1D8] relative overflow-hidden" ref={ref}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
           {/* Left Column: Editorial Sticky Content (5 cols) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-4 sm:space-y-6">
             
             {/* Section Eyebrow */}
             <div className="flex items-center gap-2">
-              <span className="text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
+              <span className="text-[12px] sm:text-[14px] font-semibold tracking-[0.18em] text-[#082B50] uppercase font-sans">
                 {whyStartHeading.label}
               </span>
             </div>
 
             {/* Main H2 Section Heading */}
-            <h2 className="font-sans text-[30px] sm:text-[38px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
+            <h2 className="font-sans text-[26px] sm:text-[36px] lg:text-[48px] font-bold text-[#082B50] leading-[1.1] tracking-tight">
               {whyStartHeading.title}{' '}
               <span className="text-[#D9A900] block mt-1">{whyStartHeading.highlight}</span>
             </h2>
 
             {/* Short Gold Decorative Underline */}
-            <div className="w-16 h-1 bg-[#D9A900] rounded-full" />
+            <div className="w-14 sm:w-16 h-1 bg-[#D9A900] rounded-full" />
 
             {/* Body Description */}
-            <p className="font-sans text-[15px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6]">
+            <p className="font-sans text-[14px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6]">
               {whyStartHeading.description}{' '}
               <span className="text-[#087C73] font-semibold block mt-2">
                 {whyStartHeading.highlightedDescription}
