@@ -91,6 +91,8 @@ function TimelinePhaseItem({
     return () => observer.disconnect();
   }, []);
 
+  const numStr = globalPhaseNum < 10 ? `0${globalPhaseNum}` : `${globalPhaseNum}`;
+
   return (
     <div
       ref={itemRef}
@@ -102,13 +104,13 @@ function TimelinePhaseItem({
         }`}
     >
       {/* Timeline Circle Node on Spine */}
-      <div className="absolute left-4 sm:left-6 lg:left-1/2 top-1.5 -translate-x-1/2 z-20 flex items-center justify-center">
+      <div className="absolute left-4 sm:left-6 lg:left-1/2 top-2 -translate-x-1/2 z-20 flex items-center justify-center">
         <div className="relative flex items-center justify-center">
           <div
-            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-[#D9A900] flex items-center justify-center shadow-xs transition-all duration-500 ${isVisible ? 'scale-110 ring-4 ring-[#D9A900]/30 shadow-md' : 'scale-90'
+            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#061C30] border-2 border-[#D9A900] text-[#D9A900] font-sans font-bold text-xs flex items-center justify-center shadow-md transition-all duration-500 ${isVisible ? 'scale-110 ring-4 ring-[#D9A900]/30' : 'scale-90'
               }`}
           >
-            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#087C73]" />
+            <span>{numStr}</span>
           </div>
           {isVisible && (
             <div className="absolute inset-0 rounded-full border border-[#D9A900] animate-ping opacity-40" />
@@ -118,29 +120,29 @@ function TimelinePhaseItem({
 
       {/* Content Container */}
       <div
-        className={`w-full lg:w-1/2 pl-10 sm:pl-14 lg:pl-0 ${isEven ? 'lg:pr-14 lg:text-right' : 'lg:ml-auto lg:pl-14 lg:text-left'
+        className={`w-full lg:w-1/2 pl-12 sm:pl-16 lg:pl-0 ${isEven ? 'lg:pr-14 lg:text-right' : 'lg:ml-auto lg:pl-14 lg:text-left'
           }`}
       >
-        <div className="space-y-2 group p-4 sm:p-5 bg-white border border-[#E5E1D8] rounded-2xl transition-all duration-300 hover:border-[#D9A900] hover:shadow-xs">
-          {/* Metadata Eyebrow */}
+        <div className="space-y-2 group p-5 bg-white/95 backdrop-blur-xs border border-[#E5E1D8] hover:border-[#D9A900] rounded-2xl transition-all duration-300 shadow-xs hover:shadow-md">
+          {/* Metadata Eyebrow with Stage Number */}
           <div
-            className={`flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#087C73] ${isEven ? 'lg:justify-end' : 'lg:justify-start'
+            className={`flex items-center gap-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#087C73] ${isEven ? 'lg:justify-end' : 'lg:justify-start'
               }`}
           >
             <Sparkles className="w-3.5 h-3.5 text-[#A87C00] shrink-0" />
-            <span>Phase 0{phaseIdx + 1}</span>
+            <span className="text-[#082B50]">STAGE {numStr}</span>
             <span className="text-[#A87C00]">•</span>
-            <span className="text-[#64748B] font-medium">Step {globalPhaseNum} of 9</span>
+            <span className="text-[#64748B] font-medium">Phase 0{phaseIdx + 1}</span>
           </div>
 
           {/* Phase Title */}
-          <h3 className="font-sans text-[18px] sm:text-[24px] font-bold text-[#082B50] group-hover:text-[#087C73] transition-colors leading-[1.2]">
+          <h3 className="font-sans text-[18px] sm:text-[22px] font-bold text-[#082B50] group-hover:text-[#087C73] transition-colors leading-[1.2]">
             {phase.title}
           </h3>
 
           {/* Phase Description */}
           <p
-            className={`text-[14px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] font-sans max-w-lg ${isEven ? 'lg:ml-auto' : 'lg:mr-auto'
+            className={`text-[14px] sm:text-[15.5px] text-[#24496B] font-normal leading-[1.6] font-sans max-w-lg ${isEven ? 'lg:ml-auto' : 'lg:mr-auto'
               }`}
           >
             {phase.description}
@@ -150,7 +152,7 @@ function TimelinePhaseItem({
           <div
             className={`pt-2 flex ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}
           >
-            <div className="w-12 h-1 bg-[#D9A900]/80 rounded-full group-hover:w-20 transition-all duration-300" />
+            <div className="w-12 h-1 bg-[#D9A900] rounded-full group-hover:w-20 transition-all duration-300" />
           </div>
         </div>
       </div>

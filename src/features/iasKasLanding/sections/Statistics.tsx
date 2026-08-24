@@ -1,5 +1,6 @@
 import { statistics } from '../data/statistics';
 import { useCountUp } from '../hooks/useCountUp';
+import { NumberCard } from '../components/cards/NumberCard';
 
 function StatItem({
   numIdx,
@@ -16,17 +17,13 @@ function StatItem({
   const { count, ref } = useCountUp(numValue, 2000, true);
 
   return (
-    <div ref={ref} className="text-center px-4 py-6 sm:py-8 relative group border-b sm:border-b-0 sm:border-r last:border-0 border-white/10">
-      <span className="font-sans font-semibold text-[10px] sm:text-[11px] text-[#D9A900]/80 uppercase tracking-[0.18em] block mb-1.5 sm:mb-2">
-        {numIdx}
-      </span>
-      <div className="font-sans text-[32px] sm:text-[44px] font-bold text-[#D9A900] mb-1.5 sm:mb-2 leading-none">
-        {count}
-        <span>{suffix}</span>
-      </div>
-      <p className="text-[11px] sm:text-[12px] font-bold text-white tracking-[0.12em] uppercase font-sans mt-2 sm:mt-3">
-        {label}
-      </p>
+    <div ref={ref} className="border-b sm:border-b-0 sm:border-r last:border-0 border-white/10">
+      <NumberCard
+        number={`${count}${suffix}`}
+        label={label}
+        subLabel={numIdx}
+        variant="borderless"
+      />
     </div>
   );
 }
@@ -51,3 +48,4 @@ export default function Statistics() {
     </section>
   );
 }
+

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Star, Trophy, Quote, CheckCircle2, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import { testimonialsHeading, testimonials } from '../data/testimonials';
 import { useInView } from '../hooks/useInView';
+import { TestimonialCard } from '../components/cards/TestimonialCard';
+
 
 export default function Testimonials() {
   const { ref, isInView } = useInView();
@@ -140,71 +142,20 @@ export default function Testimonials() {
                   key={`${testimonial.name}-${idx}`}
                   style={{ width: `${cardWidthPercent}%` }}
                   className="shrink-0 px-2 sm:px-3 lg:px-4"
-                  onClick={() => {
-                    setIsAutoPlaying(false);
-                    setIsTransitioning(true);
-                    setActiveIndex(idx - totalTestimonials);
-                  }}
                 >
-                  <div
-                    className={`bg-white/95 backdrop-blur-xs rounded-2xl p-5 sm:p-7 border transition-all duration-500 ease-out flex flex-col justify-between relative group cursor-pointer h-full ${
-                      isActive
-                        ? 'border-[#D9A900] shadow-[0_16px_36px_-8px_rgba(217,169,0,0.22)] ring-2 ring-[#D9A900]/30'
-                        : 'border-[#E5E1D8] shadow-xs hover-premium-card'
-                    }`}
-                  >
-                    <Quote
-                      className={`absolute right-6 top-6 w-8 h-8 pointer-events-none transition-all duration-500 shrink-0 ${
-                        isActive ? 'text-[#D9A900]/35 scale-125 rotate-0' : 'text-[#E5E1D8] rotate-180 group-hover:text-[#D9A900]/25 group-hover:scale-110 group-hover:rotate-0'
-                      }`}
-                    />
-
-                    <div className="space-y-4">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F8F7F3] border border-[#E5E1D8] text-[#A87C00] text-[11px] font-bold uppercase tracking-wider font-sans animate-shimmer-badge">
-                        <Trophy className="w-3.5 h-3.5 text-[#A87C00] shrink-0 group-hover:rotate-12 transition-transform" />
-                        <span>{testimonial.achievement || 'Academy Aspirant'}</span>
-                      </div>
-
-                      <div className="flex items-center gap-1">
-                        {[...Array(testimonial.rating || 5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-3.5 h-3.5 text-[#D9A900] fill-[#D9A900] transition-transform duration-300 ${
-                              isActive ? 'scale-110' : 'group-hover:scale-125'
-                            }`}
-                            style={{ transitionDelay: `${i * 50}ms` }}
-                          />
-                        ))}
-                      </div>
-
-                      <p className="font-sans text-[14.5px] sm:text-[16px] text-[#24496B] font-normal leading-[1.6] relative z-10 pt-1">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-[#E5E1D8] flex items-center gap-3.5">
-                      <div
-                        className={`w-10 h-10 rounded-full font-sans font-bold text-sm flex items-center justify-center transition-all duration-300 shrink-0 ${
-                          isActive
-                            ? 'bg-[#061C30] text-[#D9A900] border-2 border-[#D9A900] shadow-[0_0_12px_rgba(217,169,0,0.4)] scale-105'
-                            : 'bg-[#061C30] text-[#D9A900] border border-[#D9A900] shadow-xs group-hover:scale-105'
-                        }`}
-                      >
-                        {testimonial.name.charAt(0)}
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1.5">
-                          <h4 className="font-sans font-bold text-[#082B50] text-[15px] sm:text-[16px]">
-                            {testimonial.name}
-                          </h4>
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#087C73] shrink-0" />
-                        </div>
-                        <span className="text-[11px] sm:text-[12px] text-[#64748B] font-sans font-medium uppercase tracking-wider block mt-0.5">
-                          {testimonial.designation}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <TestimonialCard
+                    name={testimonial.name}
+                    designation={testimonial.designation}
+                    quote={testimonial.quote}
+                    rating={testimonial.rating || 5}
+                    achievement={testimonial.achievement || 'Academy Aspirant'}
+                    isActive={isActive}
+                    onClick={() => {
+                      setIsAutoPlaying(false);
+                      setIsTransitioning(true);
+                      setActiveIndex(idx - totalTestimonials);
+                    }}
+                  />
                 </div>
               );
             })}

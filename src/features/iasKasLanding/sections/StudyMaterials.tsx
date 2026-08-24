@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { BookOpen, PenTool, FileCheck, Newspaper, Award, MapPin, ShieldCheck, CheckCircle2, FileText, Download, ChevronRight } from 'lucide-react';
+import { BookOpen, PenTool, FileCheck, Newspaper, Award, MapPin, ShieldCheck, CheckCircle2, FileText, Download } from 'lucide-react';
 import { studyMaterialsHeading, studyMaterials } from '../data/studyMaterials';
 import { useInView } from '../hooks/useInView';
+import { HorizontalResourceCard } from '../components/cards/HorizontalResourceCard';
 
 const materialIcons = [BookOpen, PenTool, FileCheck, Newspaper, Award, MapPin];
 
@@ -177,45 +178,14 @@ export default function StudyMaterials() {
 
               return (
                 <div key={material.title} className="space-y-3">
-                  {/* Tab Button */}
-                  <div
+                  <HorizontalResourceCard
+                    title={material.title}
+                    category={material.category}
+                    icon={IconComp}
+                    isSelected={isSelected}
                     onClick={() => setSelectedIndex((prev) => (prev === idx ? null : idx))}
-                    className={`p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 cursor-pointer flex items-center justify-between group font-sans hover-premium-card ${isSelected
-                      ? 'bg-white border-[#D9A900] shadow-md -translate-y-0.5 ring-2 ring-[#D9A900]/20'
-                      : 'bg-white/95 border-[#E5E1D8] shadow-xs'
-                      }`}
-                  >
-                    <div className="flex items-center gap-3 sm:gap-3.5">
-                      <div
-                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${isSelected ? 'bg-[#082B50] text-[#D9A900]' : 'bg-[#F8F7F3] text-[#A87C00] border border-[#E5E1D8]'
-                          }`}
-                      >
-                        <IconComp className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </div>
-
-                      <div className="min-w-0">
-                        <h3 className="font-sans font-bold text-[#082B50] text-[15px] sm:text-[16px] leading-tight truncate">
-                          {material.title}
-                        </h3>
-                        <span className="text-[11px] sm:text-[12px] text-[#64748B] font-sans font-medium block mt-0.5 truncate">
-                          {material.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 shrink-0">
-                      {isSelected && (
-                        <span className="w-2 h-2 rounded-full bg-[#D9A900] animate-pulse" />
-                      )}
-                      <ChevronRight
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          isSelected
-                            ? 'text-[#087C73] rotate-90 lg:rotate-0 lg:translate-x-1'
-                            : 'text-[#64748B]'
-                        }`}
-                      />
-                    </div>
-                  </div>
+                    badge={detail.pages}
+                  />
 
                   {/* Inline Detail Console on Mobile */}
                   {isSelected && (
