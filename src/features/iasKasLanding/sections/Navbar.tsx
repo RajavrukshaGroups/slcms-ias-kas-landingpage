@@ -108,8 +108,8 @@ export default function Navbar() {
             : 'bg-transparent border-b border-transparent'
         }`}
       >
-        <div className="w-full max-w-[1536px] mx-auto px-5 sm:px-8 lg:px-[36px] xl:px-[44px] 2xl:px-[52px] box-border">
-          <div className="grid grid-cols-[auto_1fr_auto] items-center h-[88px] lg:h-[92px] xl:h-[96px]">
+        <div className="w-full max-w-[1536px] mx-auto px-5 sm:px-8 lg:px-[24px] xl:px-[44px] 2xl:px-[52px] box-border">
+          <div className="flex items-center justify-between h-[88px] lg:h-[92px] xl:h-[96px] w-full">
 
             {/* REGION 1: BRAND LOCKUP */}
             <a
@@ -118,7 +118,7 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick('#hero');
               }}
-              className="flex items-center gap-3.5 shrink-0 w-[280px] xl:w-[300px] group"
+              className="flex items-center gap-2 xl:gap-3.5 shrink-0 group z-10"
             >
               <img
                 src={logoWebp}
@@ -129,7 +129,7 @@ export default function Navbar() {
                 decoding="async"
               />
               <div className="flex flex-col justify-center shrink-0">
-                <span className="text-[14px] xl:text-[15px] font-extrabold text-white leading-[1.05] tracking-[-0.2px] uppercase font-sans">
+                <span className="text-[13px] xl:text-[15px] font-extrabold text-white leading-[1.05] tracking-[-0.2px] uppercase font-sans">
                   SRI LAKSHMI COLLEGE OF<br />
                   MANAGEMENT &amp; SCIENCE
                 </span>
@@ -140,7 +140,7 @@ export default function Navbar() {
             </a>
 
             {/* REGION 2: NAVIGATION */}
-            <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-[30px] 2xl:gap-[36px] shrink-0 px-4">
+            <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-[30px] 2xl:gap-[36px] px-2 xl:px-4">
               {navLinksWithFaq.map((item) => {
                 const active = isItemActive(item.href, item.children);
 
@@ -162,7 +162,7 @@ export default function Navbar() {
                           handleNavClick(item.href);
                         }
                       }}
-                      className={`inline-flex items-center py-1 text-[14px] xl:text-[15px] leading-none tracking-[-0.1px] transition-colors duration-150 relative whitespace-nowrap font-sans ${
+                      className={`inline-flex items-center py-1 text-[13px] xl:text-[15px] leading-none tracking-[-0.1px] transition-colors duration-150 relative whitespace-nowrap font-sans ${
                         active ? 'text-[#F5B400] font-bold' : 'text-[#F1F4F7] font-semibold hover:text-[#F5B400]'
                       }`}
                     >
@@ -221,7 +221,7 @@ export default function Navbar() {
             </nav>
 
             {/* REGION 3: CONTACT CTA BUTTON */}
-            <div className="hidden lg:flex items-center justify-end shrink-0 w-[280px] xl:w-[300px]">
+            <div className="hidden lg:flex items-center justify-end shrink-0 z-10">
               <a
                 href="#contact"
                 onClick={(e) => {
@@ -236,7 +236,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile / Compact Controls */}
-            <div className="flex lg:hidden items-center justify-end gap-2.5 shrink-0 col-start-3">
+            <div className="flex lg:hidden items-center justify-end gap-2.5 shrink-0">
               <a
                 href="#contact"
                 onClick={(e) => {

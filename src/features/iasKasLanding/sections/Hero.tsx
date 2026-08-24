@@ -1,26 +1,7 @@
-import { ArrowRight, BookOpen, Target, Users, GraduationCap, ShieldCheck, Landmark, CheckCircle2, Megaphone, FileEdit } from 'lucide-react';
+import { BookOpen, Target, Users, GraduationCap, ShieldCheck, Landmark, CheckCircle2, Megaphone, FileEdit } from 'lucide-react';
 import heroBg from '../../../assets/images/hero-bg.jpg';
 
 export default function Hero() {
-  const scrollToSection = (href: string) => {
-    if (href.startsWith('#')) {
-      const targetId = href.substring(1);
-      const el = document.getElementById(targetId);
-      if (el) {
-        const offset = 80;
-        const bodyRect = document.body.getBoundingClientRect().top;
-        const elementRect = el.getBoundingClientRect().top;
-        const elementPosition = elementRect - bodyRect;
-        const offsetPosition = elementPosition - offset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
-      }
-    }
-  };
-
   const tickerStripItems = [
     'TEST SERIES WITH REAL EXAM PATTERN',
     'NCERT + STANDARD BOOKS COVERAGE',
