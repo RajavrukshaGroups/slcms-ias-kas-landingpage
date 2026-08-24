@@ -2,6 +2,7 @@ import { BookOpen, Target, Users, GraduationCap, ShieldCheck, Landmark, CheckCir
 import heroBg from '../../../assets/images/hero-bg.jpg';
 
 export default function Hero() {
+
   const tickerStripItems = [
     'TEST SERIES WITH REAL EXAM PATTERN',
     'NCERT + STANDARD BOOKS COVERAGE',
