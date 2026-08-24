@@ -118,7 +118,7 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick('#hero');
               }}
-              className="flex items-center gap-2 sm:gap-3 lg:gap-3.5 shrink-0 group"
+              className="flex items-center gap-2 sm:gap-3 lg:gap-3.5 shrink-0 group z-10"
             >
               <img
                 src={logoWebp}
@@ -128,7 +128,7 @@ export default function Navbar() {
                 height={56}
                 decoding="async"
               />
-              <div className="flex flex-col justify-center">
+              <div className="flex flex-col justify-center shrink-0">
                 <span className="text-[10px] sm:text-[12px] lg:text-[14px] xl:text-[15px] font-extrabold text-white leading-[1.1] tracking-[-0.2px] uppercase font-sans whitespace-nowrap">
                   SRI LAKSHMI COLLEGE OF<br />
                   MANAGEMENT &amp; SCIENCE
@@ -140,7 +140,7 @@ export default function Navbar() {
             </a>
 
             {/* REGION 2: NAVIGATION */}
-            <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-[30px] 2xl:gap-[36px] shrink-0 px-4">
+            <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-[30px] 2xl:gap-[36px] px-2 xl:px-4">
               {navLinksWithFaq.map((item) => {
                 const active = isItemActive(item.href, item.children);
 
@@ -162,7 +162,7 @@ export default function Navbar() {
                           handleNavClick(item.href);
                         }
                       }}
-                      className={`inline-flex items-center py-1 text-[14px] xl:text-[15px] leading-none tracking-[-0.1px] transition-colors duration-150 relative whitespace-nowrap font-sans ${
+                      className={`inline-flex items-center py-1 text-[13px] xl:text-[15px] leading-none tracking-[-0.1px] transition-colors duration-150 relative whitespace-nowrap font-sans ${
                         active ? 'text-[#F5B400] font-bold' : 'text-[#F1F4F7] font-semibold hover:text-[#F5B400]'
                       }`}
                     >
@@ -221,7 +221,7 @@ export default function Navbar() {
             </nav>
 
             {/* REGION 3: CONTACT CTA BUTTON */}
-            <div className="hidden lg:flex items-center justify-end shrink-0 w-[280px] xl:w-[300px]">
+            <div className="hidden lg:flex items-center justify-end shrink-0 z-10">
               <a
                 href="#contact"
                 onClick={(e) => {
